@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <title="Polaroid photo converter — upload, style, and download a polaroid-style photo">
+    </head>
+<link rel="stylesheet" href="styles.css">
+
+
+<div class="app">
+  <div class="header">
+    <div class="header-deco">✦ instant memories ✦</div>
+    <div class="header-title">Polaroid <em>Studio</em></div>
+    <div class="header-sub">turn your photos into little works of art 🌸</div>
+    <div class="sticker-row">📷 &nbsp; 🎞️ &nbsp; 🌷 &nbsp; ✨ &nbsp; 🎀</div>
+  </div>
+
+  <div class="main">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="step-badge">1</div>
+        <div class="card-title">Upload your photo</div>
+      </div>
+      <div class="drop-zone" id="dz">
+        <input type="file" accept="image/*" id="fi">
+        <div class="drop-icon" id="dz-icon">📷</div>
+        <div class="drop-title" id="dz-title">Drop a photo here</div>
+        <div class="drop-sub" id="dz-sub">or click to browse · JPG, PNG, WEBP</div>
+        <img id="preview-img" alt="preview">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="step-badge">2</div>
+        <div class="card-title">Choose a vibe</div>
+      </div>
+
+      <div style="padding:14px 20px 10px;">
+        <div class="ctrl-name" style="margin-bottom:8px">Film preset</div>
+        <div class="tint-row" id="preset-row">
+          <button class="tint-btn active" style="background:#fff9f3;color:#8a5a3a" data-preset="classic">Classic</button>
+          <button class="tint-btn" style="background:#f9f3fb;color:#7a4a8a" data-preset="dreamy">Dreamy</button>
+          <button class="tint-btn" style="background:#f3f7fb;color:#3a5a8a" data-preset="faded">Faded</button>
+          <button class="tint-btn" style="background:#fdf5f3;color:#8a3a2a" data-preset="golden">Golden</button>
+          <button class="tint-btn" style="background:#f3f9f5;color:#2a6a4a" data-preset="matte">Matte</button>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="controls-grid">
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="ctrl-name">Warmth &amp; fade</span>
+            <span class="ctrl-val" id="vf-val">40%</span>
+          </div>
+          <input type="range" min="0" max="100" value="40" id="sl-fade">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="ctrl-name">Vignette</span>
+            <span class="ctrl-val" id="vv-val">45%</span>
+          </div>
+          <input type="range" min="0" max="100" value="45" id="sl-vig">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="ctrl-name">Film grain</span>
+            <span class="ctrl-val" id="vg-val">20%</span>
+          </div>
+          <input type="range" min="0" max="100" value="20" id="sl-grain">
+        </div>
+        <div class="ctrl">
+          <div class="ctrl-top">
+            <span class="ctrl-name">Tilt</span>
+            <span class="ctrl-val" id="vt-val">0°</span>
+          </div>
+          <input type="range" min="-8" max="8" value="0" step="0.5" id="sl-tilt">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="step-badge">3</div>
+        <div class="card-title">Add a caption</div>
+      </div>
+      <div style="padding:14px 0 4px;">
+        <div class="caption-wrap">
+          <i class="ti ti-writing caption-icon" aria-hidden="true"></i>
+          <input class="caption-input" id="cap" type="text" placeholder="summer '24, golden hour…" maxlength="28">
+        </div>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="gen" disabled>
+      <span>✦</span> Develop my photo <span>✦</span>
+    </button>
+
+    <div class="output-card" id="out-section">
+      <div class="output-stage">
+        <canvas id="out-canvas"></canvas>
+      </div>
+      <div class="output-footer">
+        <div class="output-label">your polaroid is ready 🌸</div>
+        <button class="dl-btn" id="dl">
+          <i class="ti ti-download" style="font-size:15px" aria-hidden="true"></i>
+          Save photo
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<canvas id="wc" style="display:none"></canvas>
+
+<script src="script1.js"></script>
+</body>
+</html>
